@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 
@@ -13,7 +12,7 @@ const Section = styled.div`
 
 const Container = styled.div`
 	width: 1400px;
-	height: 100vh;
+	height: 100%;
 	display: flex;
 	justify-content: space-between;
 `;
@@ -23,6 +22,7 @@ const Left = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	gap: 20px;
 `;
 
@@ -93,7 +93,7 @@ const Hero = () => {
 			<Navbar />
 			<Container>
 				<Left>
-					<Title>Hello world</Title>
+					<Title>Hello World</Title>
 					<WhatIDo>
 						<Line src="./img/line.png" />
 						<Subtitle>Who I am</Subtitle>

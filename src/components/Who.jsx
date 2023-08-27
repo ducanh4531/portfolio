@@ -14,15 +14,21 @@ const Container = styled.div`
 	justify-content: space-between;
 `;
 
+const Left = styled.div`
+	flex: 1;
+	position: relative;
+`;
+
 const Right = styled.div`
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	gap: 20px;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
 	font-size: 74px;
 `;
 
@@ -59,18 +65,13 @@ const Button = styled.button`
 	cursor: pointer;
 `;
 
-const Left = styled.div`
-	flex: 1;
-	position: relative;
-`;
-
 const Who = () => {
 	return (
 		<Section>
 			<Container>
 				<Left>{/*  3d model */}</Left>
 				<Right>
-					<Title>My skills</Title>
+					<Title>My Skills</Title>
 					<WhatIDo>
 						<Line src="./img/line.png" />
 						<Subtitle>What I do</Subtitle>
