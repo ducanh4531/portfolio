@@ -10,15 +10,24 @@ const Image = styled.img`
 
 const Desc = styled.div`
 	width: 700px;
-	height: 170px;
 	padding: 20px;
 	background-color: #fff;
 	border-radius: 10px;
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+		padding: 10px;
+		margin: 0 5px;
+	}
 `;
 
 const Text = styled.p`
 	font-size: 20px;
 	color: #000;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 18px;
+	}
 `;
 
 const GameHub = () => {

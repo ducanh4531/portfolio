@@ -20,6 +20,10 @@ const Container = styled.div`
 const Left = styled.div`
 	flex: 1;
 	position: relative;
+
+	@media only screen and (max-width: 768px) {
+		display: none;
+	}
 `;
 
 const Right = styled.div`
@@ -29,10 +33,19 @@ const Right = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
+
+	@media only screen and (max-width: 768px) {
+		align-items: center;
+		text-align: center;
+	}
 `;
 
 const Title = styled.h2`
 	font-size: 74px;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 60px;
+	}
 `;
 
 const WhatIDo = styled.div`
@@ -88,7 +101,8 @@ const Who = () => {
 					</WhatIDo>
 					<Description>
 						<Text>
-							These are my tech stacks that I'm working with:
+							These are my tech stacks that I'm working with since
+							2020 - now:
 						</Text>
 						<Text>
 							Typescript, React, GraphQL, NodeJs, React Native

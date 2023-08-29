@@ -16,11 +16,21 @@ const Desc = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+		padding: 10px;
+		margin: 0 5px;
+	}
 `;
 
 const Text = styled.p`
 	font-size: 20px;
 	color: #000;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 18px;
+	}
 `;
 
 const Portfolio = () => {

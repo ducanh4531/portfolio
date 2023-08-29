@@ -1,5 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
 import styled from "styled-components";
 import Atom from "./Atom";
 import Navbar from "./Navbar";
@@ -11,6 +12,10 @@ const Section = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+
+	@media only screen and (max-width: 768px) {
+		height: 300vh;
+	}
 `;
 
 const Container = styled.div`
@@ -18,6 +23,13 @@ const Container = styled.div`
 	height: 100%;
 	display: flex;
 	justify-content: space-between;
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 `;
 
 const Left = styled.div`
@@ -27,10 +39,19 @@ const Left = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
+
+	@media only screen and (max-width: 768px) {
+		flex: 2;
+		align-items: center;
+	}
 `;
 
 const Title = styled.h1`
 	font-size: 74px;
+
+	@media only screen and (max-width: 768px) {
+		text-align: center;
+	}
 `;
 
 const WhatIDo = styled.div`
@@ -47,7 +68,12 @@ const Subtitle = styled.h2`
 	color: #da4ea2;
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+	@media only screen and (max-width: 768px) {
+		padding: 10px;
+		text-align: center;
+	}
+`;
 
 const Text = styled.p`
 	font-size: 24px;
@@ -69,6 +95,11 @@ const Button = styled.button`
 const Right = styled.div`
 	flex: 2;
 	position: relative;
+
+	@media only screen and (max-width: 768px) {
+		flex: 1;
+		width: 100%;
+	}
 `;
 
 const Img = styled.img`
@@ -83,6 +114,11 @@ const Img = styled.img`
 	right: 0;
 	margin: auto;
 	animation: animate 2s infinite ease alternate;
+
+	@media only screen and (max-width: 768px) {
+		width: 400px;
+		height: 400px;
+	}
 
 	@keyframes animate {
 		to {
@@ -114,23 +150,26 @@ const Hero = () => {
 							understand, related to, and stick with programming.
 						</Text>
 						<Text>
-							But in the past six years (in 2018), I taught myself
-							and learned basic Python, then finally I have been
-							decided to very focused on learning frontend web
-							programming and other related stuffs since the last
-							month of 2020. Now I am very confident that my
-							abilities can meet future company and customers'
-							requirements as well.
+							But in the past{" "}
+							{`${new Date().getFullYear() - 2018}`} years ago (in
+							2018), I taught myself and learned basic Python,
+							then finally I have been decided to very focused on
+							learning frontend web programming and other related
+							stuffs since August 2020. Now I am very confident
+							that my abilities can meet future company and
+							customers' requirements as well.
 						</Text>
 					</Description>
 					<Button>Learn More</Button>
 				</Left>
 				<Right>
-					<Canvas camera={{ fov: 45, position: [7, 7, 7] }}>
-						<OrbitControls enableZoom={false} autoRotate />
-						<ambientLight intensity={1} />
-						<directionalLight position={[3, 2, 1]} />
-						<Atom />
+					<Canvas camera={{ fov: 60, position: [0, 0, 10] }}>
+						<Suspense fallback={null}>
+							<OrbitControls enableZoom={false} autoRotate />
+							<ambientLight intensity={1} />
+							<directionalLight position={[3, 2, 1]} />
+							<Atom />
+						</Suspense>
 					</Canvas>
 					<Img src="./img/apollo.png" />
 				</Right>

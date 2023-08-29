@@ -24,6 +24,10 @@ const Left = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 	position: relative;
+
+	@media only screen and (max-width: 768px) {
+		justify-content: center;
+	}
 `;
 
 const Form = styled.form`
@@ -37,10 +41,19 @@ const Form = styled.form`
 	left: 0;
 	right: 0;
 	margin: auto;
+	justify-content: center;
+
+	@media only screen and (max-width: 768px) {
+		width: 300px;
+	}
 `;
 
 const Title = styled.h2`
 	font-size: 74px;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 55px;
+	}
 `;
 
 const Input = styled.input`
@@ -77,6 +90,10 @@ const Text = styled.p`
 
 const Right = styled.div`
 	flex: 1;
+
+	@media only screen and (max-width: 768px) {
+		display: none;
+	}
 `;
 
 const INITIAL_STATE = {
@@ -135,7 +152,7 @@ const Contact = () => {
 						</Sphere>
 					</Canvas>
 					<Form ref={formRef} onSubmit={handleSubmit}>
-						<Title>Contact Us</Title>
+						<Title>Contact Me</Title>
 						<Input
 							placeholder="Name"
 							type="text"

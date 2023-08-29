@@ -19,3 +19,7 @@ button,
 textarea {
 	outline: 0;
 }
+
+a {
+	text-decoration: none;
+}

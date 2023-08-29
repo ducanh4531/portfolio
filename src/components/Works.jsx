@@ -31,13 +31,22 @@ const Container = styled.div`
 	width: 1400px;
 	display: flex;
 	justify-content: space-between;
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+		flex-direction: column;
+	}
 `;
 
 const Left = styled.div`
 	flex: 1;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+
+	@media only screen and (max-width: 768px) {
+		justify-content: center;
+		padding: 30px;
+	}
 `;
 
 const List = styled.ul`
@@ -45,6 +54,10 @@ const List = styled.ul`
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+
+	@media only screen and (max-width: 768px) {
+		gap: 0px;
+	}
 `;
 
 const ListItem = styled.li`
@@ -55,6 +68,13 @@ const ListItem = styled.li`
 	-webkit-text-stroke: 1px #fff;
 	position: relative;
 	white-space: nowrap;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 24px;
+		align-items: start;
+		color: #fff;
+		-webkit-text-stroke: 0px;
+	}
 
 	&:after {
 		content: "${(props) => props.text}";
@@ -86,6 +106,10 @@ const Right = styled.div`
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
+
+	@media only screen and (max-width: 768px) {
+		flex-direction: column-reverse;
+	}
 `;
 
 const Works = () => {
