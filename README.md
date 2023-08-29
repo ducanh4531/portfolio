@@ -5,7 +5,7 @@
 -   introduce the author, work experience and projects,
 -   allow users to contact and send message to author by submitting form
 
-<img width="1264" alt="Portfolio homepage" src="./public/img/homepage.png">
+<img width="1264" alt="Portfolio homepage" src="./public/img/projects/portfolio.png">
 
 ## Live Demo
 
