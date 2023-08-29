@@ -1,4 +1,6 @@
 import emailjs from "@emailjs/browser";
+import { MeshDistortMaterial, OrbitControls, Sphere } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import Map from "./Map";
@@ -21,10 +23,7 @@ const Left = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-`;
-
-const Title = styled.h2`
-	font-size: 74px;
+	position: relative;
 `;
 
 const Form = styled.form`
@@ -32,6 +31,16 @@ const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+`;
+
+const Title = styled.h2`
+	font-size: 74px;
 `;
 
 const Input = styled.input`
@@ -112,6 +121,19 @@ const Contact = () => {
 		<Section>
 			<Container>
 				<Left>
+					<Canvas>
+						<OrbitControls enableZoom={false} />
+						<ambientLight intensity={8} />
+						<directionalLight position={[3, 2, 1]} />
+						<Sphere args={[1, 100, 200]} scale={2.3}>
+							<MeshDistortMaterial
+								color="#3d1c56"
+								attach="material"
+								distort={0.5}
+								speed={2}
+							/>
+						</Sphere>
+					</Canvas>
 					<Form ref={formRef} onSubmit={handleSubmit}>
 						<Title>Contact Us</Title>
 						<Input

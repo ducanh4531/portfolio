@@ -1,4 +1,7 @@
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import styled from "styled-components";
+import Cube from "./Cube";
 
 const Section = styled.div`
 	height: 100vh;
@@ -69,7 +72,14 @@ const Who = () => {
 	return (
 		<Section>
 			<Container>
-				<Left>{/*  3d model */}</Left>
+				<Left>
+					<Canvas camera={{ fov: 20, position: [7, 7, 7] }}>
+						<OrbitControls enableZoom={false} autoRotate />
+						<ambientLight intensity={1} />
+						<directionalLight position={[3, 2, 1]} />
+						<Cube />
+					</Canvas>
+				</Left>
 				<Right>
 					<Title>My Skills</Title>
 					<WhatIDo>
@@ -84,7 +94,7 @@ const Who = () => {
 							Typescript, React, GraphQL, NodeJs, React Native
 						</Text>
 					</Description>
-					<Button>See Our Works</Button>
+					<Button>See My Works</Button>
 				</Right>
 			</Container>
 		</Section>

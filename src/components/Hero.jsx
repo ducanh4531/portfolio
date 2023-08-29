@@ -1,4 +1,7 @@
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import styled from "styled-components";
+import Atom from "./Atom";
 import Navbar from "./Navbar";
 
 const Section = styled.div`
@@ -64,12 +67,13 @@ const Button = styled.button`
 `;
 
 const Right = styled.div`
-	flex: 3;
+	flex: 2;
 	position: relative;
 `;
 
 const Img = styled.img`
-	width: 800px;
+	opacity: 0.9;
+	width: 600px;
 	height: 600px;
 	object-fit: contain;
 	position: absolute;
@@ -82,7 +86,7 @@ const Img = styled.img`
 
 	@keyframes animate {
 		to {
-			transform: translateY(20px);
+			transform: translateY(30px);
 		}
 	}
 `;
@@ -99,7 +103,7 @@ const Hero = () => {
 						<Subtitle>Who I am</Subtitle>
 					</WhatIDo>
 					<Description>
-						<Text>My name is Duc Anh Le (a.k.a Anton).</Text>
+						<Text>I'm duc anh le (a.k.a anton).</Text>
 						<Text>
 							I'm a programmer, an avid travel, a life long
 							learner, a people lover.
@@ -122,7 +126,12 @@ const Hero = () => {
 					<Button>Learn More</Button>
 				</Left>
 				<Right>
-					{/*  3d model */}
+					<Canvas camera={{ fov: 45, position: [7, 7, 7] }}>
+						<OrbitControls enableZoom={false} autoRotate />
+						<ambientLight intensity={1} />
+						<directionalLight position={[3, 2, 1]} />
+						<Atom />
+					</Canvas>
 					<Img src="./img/apollo.png" />
 				</Right>
 			</Container>

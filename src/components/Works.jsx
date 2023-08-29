@@ -1,14 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
+import ChatApp from "./projects/ChatApp";
+import Ecommerce from "./projects/Ecommerce";
+import Eventio from "./projects/Eventio";
+import GameHub from "./projects/GameHub";
+import Portfolio from "./projects/Portfolio";
+import Reddit from "./projects/Reddit";
+import Spotify from "./projects/Spotify";
+import TwitterAPI from "./projects/TwitterAPI";
 
 const data = [
 	"Portfolio",
 	"Game Hub",
 	"Ecommerce",
-	"Eventio",
+	"Twitter API",
+	"Reddit",
 	"Spotify",
 	"Chat App",
-	"Reddit",
-	"Twitter API",
+	"Eventio",
 ];
 
 const Section = styled.div`
@@ -72,27 +81,56 @@ const ListItem = styled.li`
 `;
 
 const Right = styled.div`
-	flex: 1;
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
 `;
 
-const Img = styled.img``;
-
 const Works = () => {
+	const [work, setWork] = useState("Portfolio");
+
+	const showProject = () => {
+		switch (work) {
+			case "Portfolio":
+				return <Portfolio />;
+			case "Game Hub":
+				return <GameHub />;
+			case "Ecommerce":
+				return <Ecommerce />;
+			case "Twitter API":
+				return <TwitterAPI />;
+			case "Reddit":
+				return <Reddit />;
+			case "Spotify":
+				return <Spotify />;
+			case "Chat App":
+				return <ChatApp />;
+			case "Eventio":
+				return <Eventio />;
+			default:
+				break;
+		}
+	};
+
 	return (
 		<Section>
 			<Container>
 				<Left>
 					<List>
 						{data.map((item) => (
-							<ListItem key={item} text={item}>
+							<ListItem
+								key={item}
+								text={item}
+								onClick={() => setWork(item)}
+							>
 								{item}
 							</ListItem>
 						))}
 					</List>
 				</Left>
-				<Right>
-					<Img />
-				</Right>
+				<Right>{showProject()}</Right>
 			</Container>
 		</Section>
 	);
